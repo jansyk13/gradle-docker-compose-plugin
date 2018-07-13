@@ -31,6 +31,9 @@ class ComposeExecutor {
             if (ex.projectName) {
                 finalArgs.addAll(['-p', ex.projectName])
             }
+            if (ex.verbose) {
+                finalArgs.add('--verbose')
+            }
             finalArgs.addAll(args)
             e.commandLine finalArgs
             e.standardOutput = os

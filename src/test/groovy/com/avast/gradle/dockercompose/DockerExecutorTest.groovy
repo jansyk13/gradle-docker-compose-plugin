@@ -41,4 +41,16 @@ class DockerExecutorTest extends Specification {
         f.project.tasks.composeDown.down()
         f.close()
     }
+
+    def "runs docker-compose with verbose flag"() {
+        given:
+        def f = Fixture.withHelloWorld()
+        f.extension.verbose = true
+        when:
+        f.project.tasks.composePull.pull()
+        then:
+        true
+        cleanup:
+        f.close()
+    }
 }

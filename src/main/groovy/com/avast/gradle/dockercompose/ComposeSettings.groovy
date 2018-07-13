@@ -58,6 +58,7 @@ class ComposeSettings {
     Map<String, Object> environment = new HashMap<String, Object>(System.getenv())
 
     String dockerExecutable = 'docker'
+    boolean verbose = false
 
     String dockerComposeWorkingDirectory = null
     Duration dockerComposeStopTimeout = Duration.ofSeconds(10)
@@ -110,6 +111,7 @@ class ComposeSettings {
         r.environment = new HashMap<>(this.environment)
 
         r.dockerExecutable = this.dockerExecutable
+        r.verbose = this.verbose
 
         r.dockerComposeWorkingDirectory = this.dockerComposeWorkingDirectory
         r.dockerComposeStopTimeout = this.dockerComposeStopTimeout
